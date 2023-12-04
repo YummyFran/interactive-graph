@@ -251,7 +251,7 @@ canvas.addEventListener('click', e => {
     updateTools()
 })
 
-canvas.addEventListener('mousedown', e => {
+function handleMouseDown(e) {
     const mouseX = e.clientX - canvas.getBoundingClientRect().left;
     const mouseY = e.clientY - canvas.getBoundingClientRect().top;
 
@@ -271,13 +271,13 @@ canvas.addEventListener('mousedown', e => {
             node.offsetY = mouseY - node.y
         }
     })
-})
+}
 
-canvas.addEventListener('mouseup', () => {
+function handleMouseUp() {
     nodes.forEach(node => node.isDragging = false)
-})
+}
 
-canvas.addEventListener('mousemove', e => {
+function handleMouseMove(e) {
     const mouseX = e.clientX - canvas.getBoundingClientRect().left
     const mouseY = e.clientY - canvas.getBoundingClientRect().top
     
@@ -287,7 +287,15 @@ canvas.addEventListener('mousemove', e => {
             node.y = mouseY - node.offsetY
         } 
     })
-})
+}
+
+canvas.addEventListener('mousedown', handleMouseDown)
+canvas.addEventListener('mouseup', handleMouseUp)
+canvas.addEventListener('mousemove', handleMouseMove)
+
+canvas.addEventListener('touchstart', handleMouseDown)
+canvas.addEventListener('touchend', handleMouseUp)
+canvas.addEventListener('touchmove', handleMouseMove)
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth
