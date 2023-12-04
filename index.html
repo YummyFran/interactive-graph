@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <form class="tools">
+        <h4 id="toolHeader">Configure Node</h4>
+        <input type="text" placeholder="Node name" id="name" autocomplete="off" required>
+        <input type="color" value="#ffffff" id="color">
+        <p id="childHeader">Children</p>
+        <div class="children" id="children">
+        </div>
+        <button type="submit" class="submit" id="toolBtn">Add Node</button>
+        <button id="deleteBtn">Delete</button>
+    </form>
+    <div class="hover-card">
+        <h3>Vertex</h3>
+        <span><b>Name: </b><span id="cardName">Name</span></span>
+        <span><b>Color: </b><span id="cardColor">Color</span></span>
+        <span><b>Connected Nodes: </b><br><span id="cardColor">
+            <ul id="connectedNodes"></ul>
+        </span></span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
